@@ -21,5 +21,6 @@ public:
 	void OverWrite(const std::string& message);
 	void Write(const std::string& message);
 	void Read();
-	void Encrypt();
+	void Encrypt(size_t key);
+	void Decrypt(size_t key);
 };

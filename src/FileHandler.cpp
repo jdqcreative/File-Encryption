@@ -47,7 +47,48 @@ void FileHandler::Read()
 	m_FileObj.close();
 }
 
-void FileHandler::Encrypt()
+void FileHandler::Encrypt(size_t key)
 {
-	
+	std::ofstream tempFile;
+
+	m_FileObj.open(m_FileName);
+	tempFile.open("temp.txt");
+
+	char ch;
+
+	while (m_FileObj.get(ch))
+	{
+		ch += key;
+		tempFile.put(ch);
+	}
+	m_FileObj.close();
+	tempFile.close();
+
+	std::string name = m_FileName;
+
+	std::remove(name.c_str());
+	std::rename("temp.txt", name.c_str());
+}
+
+void FileHandler::Decrypt(size_t key)
+{
+	std::ofstream tempFile;
+
+	m_FileObj.open(m_FileName);
+	tempFile.open("temp.txt");
+
+	char ch;
+
+	while (m_FileObj.get(ch))
+	{
+		ch -= key;
+		tempFile.put(ch);
+	}
+	m_FileObj.close();
+	tempFile.close();
+
+	std::string name = m_FileName;
+
+	std::remove(name.c_str());
+	std::rename("temp.txt", name.c_str());
 }

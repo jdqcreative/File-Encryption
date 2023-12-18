@@ -8,10 +8,11 @@ int main()
 {
 	FileHandler test("test.txt");
 
-	test.OverWrite("Hello");
-	test.Write(" World");
+	test.Encrypt(12);
 	test.Read();
-	test.Encrypt();
+	std::cout << std::endl;
+	test.Decrypt(12);
+	test.Read();
 
 	return 0;
 }
