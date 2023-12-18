@@ -6,11 +6,12 @@
 
 int main()
 {
-	FileHandler test("testies.txt");
+	FileHandler test("test.txt");
 
 	test.OverWrite("Hello");
 	test.Write(" World");
 	test.Read();
+	test.Encrypt();
 
 	return 0;
 }

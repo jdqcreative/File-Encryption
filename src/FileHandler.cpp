@@ -49,5 +49,5 @@ void FileHandler::Read()
 
 void FileHandler::Encrypt()
 {
-
+	
 }
